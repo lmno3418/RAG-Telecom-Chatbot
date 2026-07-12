@@ -1,0 +1,5 @@
+.env
+TelecomRAG-VENV
+__pycache__
+chroma_store
+.DS_Store
