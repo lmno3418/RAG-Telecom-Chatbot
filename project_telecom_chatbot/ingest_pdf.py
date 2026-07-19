@@ -14,7 +14,7 @@ from langchain_huggingface import HuggingFaceEmbeddings
 
 CHROMA_DIR = "chroma_store"
 COLLECTION = "guides"
-PDF_PATH   = os.path.join("data", "telecom_guide.pdf")
+PDF_PATH   = "data/telecom_guide.pdf"
 EMBED_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 
 CHUNK_SIZE    = 600

@@ -12,7 +12,7 @@ from langchain_huggingface import HuggingFaceEmbeddings
 
 CHROMA_DIR = "chroma_store"
 COLLECTION  = "faq"
-CSV_PATH    = os.path.join("data", "faq.csv")
+CSV_PATH    = "data/faq.csv"
 EMBED_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 
 

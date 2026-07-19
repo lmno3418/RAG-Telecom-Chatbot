@@ -8,8 +8,15 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-googleapikey = os.getenv("googleapikey") 
-groqapikey = os.getenv("groqapikey")
+googleapikey = os.getenv("GOOGLE_API_KEY") 
+if not googleapikey:
+    googleapikey = os.getenv("googleapikey")
+
+groqapikey = os.getenv("GROQ_API_KEY")
+if not groqapikey:
+    groqapikey = os.getenv("groqapikey")
+
+model = os.getenv("MODEL", "qwen/qwen3-32b")
 
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
@@ -27,8 +34,9 @@ The context comes from two sources:
 - FAQ entries (general policy and how-to information)
 - Past support tickets (real resolved cases with step-by-step resolutions)
 
-If the context does not contain enough information to answer confidently, say so clearly \
-and suggest the customer call 611 or use the MyTelecom app.
+If the context contains a FAQ or ticket that directly answers the question, answer directly from it.
+Only say the context is insufficient if the retrieved context is genuinely unrelated or empty.
+In that case, say so clearly and suggest the customer call 611 or use the MyTelecom app.
 
 Context:
 {context}
@@ -52,7 +60,7 @@ def build_chain():
     ])
 
     llm = ChatGroq(
-        model="qwen/qwen3-32b",
+        model=model,
         api_key=groqapikey,
         temperature=0,
         max_tokens=None,

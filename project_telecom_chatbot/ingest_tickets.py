@@ -12,7 +12,7 @@ from langchain_huggingface import HuggingFaceEmbeddings
 
 CHROMA_DIR = "chroma_store"
 COLLECTION  = "tickets"
-DB_PATH     = os.path.join("data", "tickets.db")
+DB_PATH     = "data/tickets.db"
 EMBED_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 
 
