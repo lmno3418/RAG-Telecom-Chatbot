@@ -16,7 +16,7 @@ groqapikey = os.getenv("GROQ_API_KEY")
 if not groqapikey:
     groqapikey = os.getenv("groqapikey")
 
-model = os.getenv("MODEL", "qwen/qwen3-32b")
+model = os.getenv("MODEL") or "openai/gpt-oss-120b"  # Groq retires models often: console.groq.com/docs/deprecations
 
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
@@ -64,7 +64,8 @@ def build_chain():
         api_key=groqapikey,
         temperature=0,
         max_tokens=None,
-        reasoning_format="parsed",
+        # gpt-oss rejects reasoning_format (its reasoning is already kept out of content); others need "parsed" to strip <think>
+        reasoning_format=None if model.startswith("openai/gpt-oss") else "parsed",
         timeout=None,
         max_retries=2,
     )
