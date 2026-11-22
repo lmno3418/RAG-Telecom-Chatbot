@@ -16,7 +16,7 @@ groqapikey = os.getenv("GROQ_API_KEY")
 if not groqapikey:
     groqapikey = os.getenv("groqapikey")
 
-model = os.getenv("MODEL") or "openai/gpt-oss-120b"  # Groq retires models often: console.groq.com/docs/deprecations
+model = "openai/gpt-oss-120b"  # Groq retires models often: console.groq.com/docs/deprecations
 
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser

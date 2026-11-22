@@ -70,7 +70,7 @@ groqapikey=your_groq_api_key_here
 googleapikey=your_secondary_key_here
 ```
 
-The current chain accepts both the lowercase names above and the uppercase variants `GROQ_API_KEY` and `GOOGLE_API_KEY`. If `MODEL` is unset, it defaults to `openai/gpt-oss-120b`.
+The current chain accepts both the lowercase names above and the uppercase variants `GROQ_API_KEY` and `GOOGLE_API_KEY`. The Groq model is set in code (`model` in `project_telecom_chatbot/rag_chain.py`), not in secrets.
 
 **3. Ingest data into Chroma**
 
