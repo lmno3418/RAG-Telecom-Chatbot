@@ -1,6 +1,6 @@
 # RAG Telecom Chatbot
 
-A Retrieval-Augmented Generation (RAG) customer care chatbot for telecom support. It answers questions about mobile connectivity, billing, SIM issues, roaming, and related service problems by retrieving relevant context from FAQ rows, resolved tickets, and a telecom guide, then generating responses with Qwen3-32B via Groq.
+A Retrieval-Augmented Generation (RAG) customer care chatbot for telecom support. It answers questions about mobile connectivity, billing, SIM issues, roaming, and related service problems by retrieving relevant context from FAQ rows, resolved tickets, and a telecom guide, then generating responses with gpt-oss-120b via Groq.
 
 ## Architecture
 
