@@ -1,6 +1,6 @@
 """
 Builds the RAG chain:
-  merged retriever → prompt → Qwen3-32B on Groq → string output
+  merged retriever → prompt → Groq LLM (see `model` below) → string output
 """
 
 import os
@@ -8,13 +8,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-googleapikey = os.getenv("GOOGLE_API_KEY") 
-if not googleapikey:
-    googleapikey = os.getenv("googleapikey")
-
 groqapikey = os.getenv("GROQ_API_KEY")
-if not groqapikey:
-    groqapikey = os.getenv("groqapikey")
 
 model = "openai/gpt-oss-120b"  # Groq retires models often: console.groq.com/docs/deprecations
 

@@ -66,11 +66,10 @@ touch .env
 Edit `.env` and fill in your keys:
 
 ```bash
-groqapikey=your_groq_api_key_here
-googleapikey=your_secondary_key_here
+GROQ_API_KEY=your_groq_api_key_here
 ```
 
-The current chain accepts both the lowercase names above and the uppercase variants `GROQ_API_KEY` and `GOOGLE_API_KEY`. The Groq model is set in code (`model` in `project_telecom_chatbot/rag_chain.py`), not in secrets.
+On Streamlit Cloud, put the same `GROQ_API_KEY` line in the app's Secrets. The Groq model is set in code (`model` in `project_telecom_chatbot/rag_chain.py`), not in secrets.
 
 **3. Ingest data into Chroma**
 
